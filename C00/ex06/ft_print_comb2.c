@@ -10,46 +10,50 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
+#include <unistd.h>
 
-void ft_print_comb2(void)
-{
-	char d0;
-	char d1;
-	char d2;
-	char d3;
+void ft_print_comb2(void) {
+  char d0;
+  char d1;
+  char d2;
+  char d3;
 
-	d0 = '0';
-	d1 = '0';
-	d2 = '0';
-	d3 = '0';
+  d0 = '1';
+  d1 = '0';
+  d2 = '0';
+  d3 = '0';
 
-	while (d3 <= '9')
-	{
-		write(1, &d3, 1);
-		write(1, &d2, 1);
-		write(1, " ", 1);
-		write(1, &d1, 1);
-		write(1, &d0, 1);
-		write(1, ",", 1);
-		write(1, " ", 1);
-		if (d0 == '9')
-		{
-			d0 = '0';
-			d1 ++;
-		}
-		if (d1 && d0 == '9')
-		{
-			d0 = '0';
-			d1 = '0';
-			d2 ++;
-		}
-		d0 ++;
-	}
+  while (d3 <= '9') {
+    while (d2 <= '9') {
+      while (d1 <= '9') {
+        while (d0 <= '9') {
+          write(1, &d3, 1);
+          write(1, &d2, 1);
+          write(1, " ", 1);
+          write(1, &d1, 1);
+          write(1, &d0, 1);
+          if (d3 == '9' && d2 == '8' && d1 == '9' && d0 == '9')
+            break;
+          write(1, ",", 1);
+          write(1, " ", 1);
+          d0++;
+        }
+        d0 = '0';
+        d1++;
+      }
+      d1 = '0';
+      d2++;
+      d0 = d2 + 1;
+      d1 = d3;
+    }
+    d2 = '0';
+    d3++;
+    d0 = d2 + 1;
+    d1 = d3;
+  }
 }
-
-int main()
-{
-	ft_print_comb2();
-	return (0);
-}
+/*
+int main() {
+  ft_print_comb2();
+  return (0);
+}*/

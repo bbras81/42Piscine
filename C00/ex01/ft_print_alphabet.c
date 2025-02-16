@@ -12,14 +12,17 @@
 
 #include <unistd.h>
 
-void	ft_print_alphabet(void)
-{
-	char	caracter;
+void ft_print_alphabet(void) {
+  char caracter;
 
-	caracter = 97;
-	while (caracter <= 122)
-	{
-		write(1, &caracter, 1);
-		caracter += 1;
-	}
+  caracter = 97;
+  while (caracter <= 122) {
+    write(1, &caracter, 1);
+    caracter += 1;
+  }
 }
+/*
+int main() {
+  ft_print_alphabet();
+  return (0);
+}*/
